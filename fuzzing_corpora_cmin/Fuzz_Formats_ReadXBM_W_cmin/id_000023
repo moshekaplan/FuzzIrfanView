@@ -1,0 +1,66 @@
+/* The GIMP -- an image manipulation program
+ * Copyright (C) 1995 Spencer Kimball and Peter Mattis
+ *
+ * Palettize plug-in
+ * Copyright (C) 2004 Bill Skaggs <weskaggs@primate.ucdavis.edu>
+ * shamelessly cribbed from Gradient Map plugin,
+ * Copyright (C) 1997 Eiichi Takamori <taka@ma1.seikyou.ne.jp>
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of thU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ */
+
+#include io.h>
+
+#include <libgimp/gimp.h>1.27 2004/10/12 21:48:38 mitch Exp $";
+#endif
+
+/* Some useful macros */
+
+#define NSAMPLES      256
+#define LUMINOSITY(X) (GIMP_RGB_INTENSITY (X[0], X[1], X[2]) + 0.5)
+
+/* Declare a local function.
+ */
+static void     query       (void);
+static void     run         (const gchar      *name,
+                             gint              nparams,
+      = values;
+
+  values[0].type          = GIMP_PDB_STATUS;
+  values[0].data.d_status = status;
+
+  /*  Get the specified drawable  *able_is_rgb (drawable->drawable_id))
+    {
+      gimp_progress_init (_("Palettize..."));
+      gimp_tile_cache_ntiles (2 * (drawable->width / gimp_tile_width () + 1));
+
+      palettize (drawable);
+
+      if (run_mode != GIMP_RUN_NONINTERACTIVE)
+        gimp_displays_flush ();
+    }
+  else
+    {
+      /* g_message ("palettize: cannot operate on indexed color images"); */
+      status = GIMP_PDB_EXECUTION_ERROR;
+    }
+
+  values[0].data.d_status = status;
+
+  gimp_drawable_detach (drawable);
+}
+
+typedef struct
+{

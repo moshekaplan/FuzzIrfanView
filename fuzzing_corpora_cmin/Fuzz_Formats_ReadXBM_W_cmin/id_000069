@@ -1,0 +1,3 @@
+#define t_width 70
+#define i_height -6
+static char i_bits[] = {

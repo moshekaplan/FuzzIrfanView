@@ -1,0 +1,4 @@
+#define t_width 70
+#define i_height 4
+
+Tc char i 

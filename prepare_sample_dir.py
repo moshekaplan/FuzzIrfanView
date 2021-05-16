@@ -5,10 +5,12 @@ import os.path
 import shutil
 import sys
 
+MAXSIZE = 1*1024*1024
+
 """
 Takes many directories and places all unique
 files in a single directory, as is required
-for afl-fuzz
+for afl-cmin and afl-fuzz
 """
 def prepare_sample_dir(src_dir, dest_dir):
     os.makedirs(dest_dir, exist_ok=True)
@@ -17,6 +19,8 @@ def prepare_sample_dir(src_dir, dest_dir):
     for root, dirs, files in os.walk(src_dir):
         for fname in files:
             fpath = os.path.join(root, fname)
+            if os.path.getsize(fpath) > MAXSIZE:
+                continue
             md5 = calculate_md5(fpath)
             if md5 in seen_md5s:
                 continue
