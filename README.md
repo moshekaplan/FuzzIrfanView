@@ -25,3 +25,10 @@ For the files in formats.dll, here are notes on exported functions that required
 * ReadXBM_W - Requires file extension `.xbm`
 * ReadWBMP_W - Requires file extension `.wbmp`
 * ReadXPM_W - Requires file extension `.xpm`
+
+# Potential future work
+
+Here are a few ideas for potential future work:
+* Fuzz IrfanView's other plugins
+* Fuzz the formats parsed within IrfanView itself
+* Fuzz with other fuzzers besides winafl
