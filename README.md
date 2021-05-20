@@ -32,4 +32,4 @@ Here are a few ideas for potential future work:
 * Fuzz IrfanView's other plugins
 * Fuzz the formats parsed within IrfanView itself
 * Fuzz with other fuzzers besides winafl
-* Improve the corpus by unzipping and extracting all archive files
+* Improve the corpus by unzipping and extracting all archive files downloaded from bug trackers
